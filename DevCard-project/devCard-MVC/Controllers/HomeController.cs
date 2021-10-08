@@ -22,10 +22,17 @@ namespace devCard_MVC.Controllers
         {
             return View();
         }
-
-         public IActionResult Contact()
+        [HttpGet]
+        public IActionResult Contact()
         {
-            return View();
+            var model = new contact();
+            return View(model);
+        }
+         [HttpPost]
+        public JsonResult Contact(contact form)
+        {
+            Console.WriteLine(form.ToString());
+            return Json(Ok());
         }               
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
